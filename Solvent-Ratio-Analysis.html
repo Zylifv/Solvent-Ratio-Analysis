@@ -1,0 +1,49 @@
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+      <link href="styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title>Solvent Ratio Analysis</title>
+    </head>
+      <body>
+        <h1>Solvent Ratio Analysis</h1>
+        <div id="wrapper">
+        <section id="known-values">
+          <label for="known-diluent">Known Diluent Value:</label>
+            <input id="known-diluent-value"
+                   type="number"
+                   min="0.01" />
+          <label for="chem-comparison">Chemical Comparison Value:</label>
+          <input id="chem-comparison-value"
+                 type="number"
+                 min="0.01" />
+          <button id="calculate-knowns-ratio-btn" onclick="calculateKnownsRatio()" type="button">Calculate</button>
+        </section>
+          <br>
+          <section id="chemicals-list">
+            <nav>
+              <h2>Formula list <u>without</u> main diluent present:</h2>
+            <form id="main-list">
+              <label for="formula-name" id="formulation-name">Code/Ref:</label>
+            <input for="formula-name" type="string" id="formula-name" maxLength="6"/>
+              <label for="new-ratio-val" id="new-ratio-val">Main Peak Ratio:</label>
+            <input for="calculated-ratio-val" type="number" id="calculated-ratio-val-num" value="null" step="any" />
+              <label for="calculated-ratio-val" id="calculated-ratio-val">Comparison value:</label>
+            <input for="new-ratio-val" type="number" id="new-ratio-val-num" value="50" step="any" />
+              
+            <label for="chem1" id="chem1" class="chemNum">1:</label>
+            <input for="chem1" type="number" id="1" step="any" class="chems" value="50" />
+            </form>
+            </nav>
+            <div id="buttons">
+              <button id="add-btn" type="button">Add item</button>
+              <button id="convert-btn" type="button">Convert ratios</button>
+              <button id="print-page" onclick="printThisPage();">Print</button>
+              <button id="reset-form" onclick="resetPage();">Reset form</button>
+            </div>
+          </section>
+        </div>
+        <script src="script.js"></script>
+  </body>
+</html>
