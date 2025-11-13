@@ -2,11 +2,11 @@
 
 :root {
   --white: #fff;
-  --dark-blue: #1b263b;
+  --dark-blue: #141c2b;
   --mid-blue: #415a77;
   --light-grey: #dee2e6;
-  --gold: #fca311;
-  --light-gold: #e2be77;
+  --gold: #ffc300;
+  --light-gold: #ffd60a;
   --green: #7AC74C;
   --red: #e8401c;
 }
@@ -14,11 +14,13 @@
 body {
   font-family: 'Source Sans Pro';
   background: var(--dark-blue);
+  padding: 0;
 }
 
 #wrapper {
   margin: auto;
-  max-width: 800px;
+  max-width: 390px;
+  overflowX: hidden;
 }
 
 h1 {
@@ -49,22 +51,23 @@ h2 {
 }
 
 #known-values > label {
-  margin: 10px;
+  margin: 5px;
   font-weight: bold;
   font-size: 1.1em;
 }
 
 #known-values {
   margin: auto;
-  width: 410px;
+  width: 400px;
   position: relative;
   text-align: center;
   display: grid;
-  max-width: 410px;
+  margin-left: -10px;
+  max-width: 400px;
   background: var(--white);
   border: 5px solid var(--light-grey);
   border-radius: 8px;
-  height: 210px;
+  height: 280px;
 }
 
 #calculate-knowns-ratio-btn {
@@ -74,8 +77,12 @@ h2 {
   height: 28px;
   background-color: var(--gold);
   border: 2px solid var(--light-gold);
-  color: var(--white);
+  border-radius: 3px;
+  color: var(--dark-blue);
   font-size: 1.2em;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  /*text-shadow: 1px 0 0 var(--mid-blue), 0 -1px 0 var(--mid-blue), 0 1px 0 var(--mid-blue), -1px 0 0 var(--mid-blue);*/
 }
 
 #calculate-knowns-ratio-btn:active {
@@ -96,8 +103,9 @@ nav {
 
 #chemicals-list {
   margin: auto;
-  width: 410px;
+  width: 400px;
   position: relative;
+  margin-left: -10px;
   height: 550px;
   border: 5px solid var(--light-grey);
   background-color: var(--white);
@@ -118,7 +126,8 @@ nav {
 
 #main-list > input {
   margin-top: 2px;
-  border: 2px solid var(--gold);
+  border: 2px solid var(--light-grey);
+  border-radius: 5px;
 }
 
 #formula-name, #calculated-ratio-val-num, #new-ratio-val-num, .chems {
@@ -149,7 +158,7 @@ nav {
 nav {
   overflow: hidden;
   overflow-y: scroll;
-  height: 500px;
+  height: 455px;
 }
 
 #buttons {
@@ -162,9 +171,12 @@ nav {
   margin: auto;
   display: inline-block;
   font-weight: bold;
-  border: 2px solid var(--gold);
+  border: 2px solid var(--light-gold);
+  background-color: var(--gold);
+  color: var(--dark-blue);
+  border-radius: 3px;
   height: 40px;
-  margin: 5px;
+  margin: 35px 5px 5px 5px;
 }
 
 .discard {
@@ -198,7 +210,20 @@ nav {
     margin: auto;
     padding: 1px;
   }
-  .discard {
+  .discard, #sig {
     visibility: hidden;
   }
+}
+
+#sig {
+  color: var(--light-grey);
+  margin: auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 0.6em;
+  letter-spacing: 0.25em;
+  margin-top: 5px;
+  height: 40px;
+  font-size: 0.7em;
 }
