@@ -9,11 +9,20 @@
   --light-gold: #ffd60a;
   --green: #7AC74C;
   --red: #e8401c;
+  --light-pink: #f2c4ce;
+  --pink: #f58f7c;
+  --dull-grey: #d6d6d6;
+  --slate-grey: #4f4f51;
+  --black: #2c2b30;
+  --border-green: #748045;
+  --olive-green: #596235;
+  --highlight-green: #758242;
+  --grapefruit: #d96846
 }
 
 body {
   font-family: 'Source Sans Pro';
-  background: var(--dark-blue);
+  background: var(--black);
   padding: 0;
 }
 
@@ -30,12 +39,12 @@ h1 {
 
 h2 {
   text-align: center;
-  color: var(--dark-blue);
+  color: var(--black);
   font-size: 1em;
 }
 
 #known-values > input {
-  border: 3px solid var(--light-grey);
+  border: 3px solid var(--grapefruit);
   padding: 5px;
   width: 80px;
   height: 15px;
@@ -44,6 +53,7 @@ h2 {
   text-align: center;
   font-size: 1.3em;
   font-weight: bold;
+  color: var(--black);
 }
 
 #known-values > input:focus {
@@ -54,6 +64,7 @@ h2 {
   margin: 5px;
   font-weight: bold;
   font-size: 1.1em;
+  color: var(--black);
 }
 
 #known-values {
@@ -75,13 +86,17 @@ h2 {
   margin-top: 10px;
   width: 150px;
   height: 28px;
-  background-color: var(--gold);
-  border: 2px solid var(--light-gold);
+  background-color: var(--olive-green);
+  border: 2px solid var(--border-green);
   border-radius: 3px;
-  color: var(--dark-blue);
+  color: var(--white);
   font-size: 1.2em;
   letter-spacing: 0.8px;
   font-weight: 500;
+}
+
+#calculate-knowns-ratio-btn:hover, #convert-btn:hover, #print-page:hover, #add-btn:hover {
+  background-color: var(--highlight-green);
 }
 
 #calculate-knowns-ratio-btn:active,#convert-btn:active, #print-page:active, #add-btn:active {
@@ -125,7 +140,7 @@ nav {
 
 #main-list > input {
   margin-top: 2px;
-  border: 2px solid var(--light-grey);
+  border: 2px solid var(--grapefruit);
   border-radius: 5px;
 }
 
@@ -165,9 +180,9 @@ nav {
   margin: auto;
   display: inline-block;
   font-weight: bold;
-  border: 2px solid var(--light-gold);
-  background-color: var(--gold);
-  color: var(--dark-blue);
+  border: 2px solid var(--border-green);
+  background-color: var(--olive-green);
+  color: var(--white);
   border-radius: 3px;
   height: 40px;
   margin: 35px 5px 5px 5px;
@@ -175,6 +190,7 @@ nav {
 
 label {
   position: relative;
+  color: var(--black);
 }
 
 .discard {
@@ -192,6 +208,9 @@ label {
 form.mainlist button:nth-child(n+1):nth-last-child(-n+8).discard {
   left: 55px;
 }
+
+/*:nth-child(n+X)     // all children from the Xth position onward
+:nth-child(-n+x)    // all children up to the Xth position       */
 
 @media print {
   #wrapper {
