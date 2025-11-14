@@ -43,7 +43,7 @@ h2 {
   font-size: 1em;
 }
 
-#known-values > input {
+#known-values-list > input {
   border: 3px solid var(--grapefruit);
   padding: 5px;
   width: 80px;
@@ -56,18 +56,18 @@ h2 {
   color: var(--black);
 }
 
-#known-values > input:focus {
+#known-values-list > input:focus {
   outline: none;
 }
 
-#known-values > label {
+#known-values-list > label {
   margin: 5px;
   font-weight: bold;
   font-size: 1.1em;
   color: var(--black);
 }
 
-#known-values {
+#known-values-list {
   margin: auto;
   width: 400px;
   position: relative;
@@ -213,7 +213,31 @@ form.mainlist button:nth-child(n+1):nth-last-child(-n+8).discard {
 :nth-child(-n+x)    // all children up to the Xth position       */
 
 @media print {
+  
   #wrapper {
+    visibility: hidden;
+  }
+  
+  #known-values-list {
+    margin: auto;
+    visibility: visible;
+    position: absolute;
+    border: none;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 20px;
+    width: 300px;
+    top: 70px;
+    font-size: 0.85em;
+  }
+  
+  #known-values-list > input {
+    transform: scale(0.8);
+    margin-top: -5px;
+    margin-bottom: -5px;
+  }
+  
+  #calculate-knowns-ratio-btn {
     visibility: hidden;
   }
   
@@ -225,15 +249,18 @@ form.mainlist button:nth-child(n+1):nth-last-child(-n+8).discard {
     transform: translateX(-50%);
     padding-bottom: 20px;
     width: 300px;
-    top: 10px;
+    top: 220px;
   }
+  
   .chems {
     margin: auto;
     padding: 1px;
   }
+  
   .discard, #sig {
     visibility: hidden;
   }
+  
 }
 
 #sig {
