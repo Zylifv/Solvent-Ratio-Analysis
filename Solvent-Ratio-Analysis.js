@@ -11,38 +11,36 @@ const addBtn = document.getElementById("add-btn");
 const convertBtn = document.getElementById("convert-btn");
 const mainListItems = document.querySelectorAll(".chemNum");
 let knownValuesRatio = 0;
-let idCount = 1;
+let idCount = 01;
 let newValuesArr = [];
 
 document.getElementById("chemicals-list").style.display = "none";
 
 function calculateKnownsRatio() {
-  if (!diluentValue.value || !chemComparisonValue.value) {
+  if (!diluentValue.value || !chemComparisonValue.value)
+  {
     alert("Please enter a valid value for the Diluent and/or Chemical comparison.")
     return;
-  } else {
-    console.log(`chemComparisonMax val: ${chemComparisonMax.value}`)
-    console.log(`diluentVal val: ${diluentValue.value}`)
+  }
+  else
+  {
     totalCorrMax = Number(diluentValue.value) + Number(chemComparisonMax.value);
     percentOfDiluentTotal = Number(diluentValue.value / totalCorrMax);
     percentOfChemTotal = Number(chemComparisonMax.value / totalCorrMax);
     knownValuesRatio = Number((percentOfChemTotal / percentOfDiluentTotal).toFixed(4));
-    //console.log(percentOfDiluentTotal, percentOfChemTotal, totalCorrMax, knownValuesRatio);
     document.getElementById("calculated-ratio-val-num").value = knownValuesRatio;
     document.getElementById("known-values").style.display = "none";
     document.getElementById("chemicals-list").style.display = "block";
   }
 }
 
-//calculateKnownsRatioBtn.addEventListener("click", () => {});
-
 addBtn.addEventListener("click", () => {
 
     idCount++;//keeps track of what id to assign each new label & input
     idCount >= 30 ? addBtn.disabled = true : addBtn.disabled = false;
-    if (idCount <= 30) {//prevents the number of items exceeding n as thats what the algorithm cap is for now.
-    
-      //creates new labels and inputs based on when the user clicks the add button
+    if (idCount <= 30) //prevents the number of items exceeding n as thats what the algorithm cap is for now.
+    {
+    //creates new labels and inputs based on when the user clicks the add button
     let newItem = document.createElement("label");
     let newItemContent = document.createTextNode(`${idCount}:`);
     let newItemVal = document.createElement("input");
@@ -64,64 +62,60 @@ addBtn.addEventListener("click", () => {
       newItem.appendChild(btn);
         document.getElementById("main-list").appendChild(newItem);
         document.getElementById("main-list").appendChild(newItemVal);
-      
 
         btn.onclick = function removeItem() {
         let parent = document.getElementById("main-list");
-          if (btn.id === `chem${idCount}`) {
+          if (btn.id === `chem${idCount}`)
+          {
             parent.removeChild(document.getElementById(newItem.id));
             parent.removeChild(document.getElementById(newItemVal.id));
-        idCount--;
-        idCount >= 30 ? addBtn.disabled = true : addBtn.disabled = false;
+            idCount--;
+            idCount >= 30 ? addBtn.disabled = true : addBtn.disabled = false;
           }
        }
-    } else {
+    }
+    else
+    {
       return;
     }
 });
 
 convertBtn.addEventListener("click", () => {
   
-  if (!document.getElementById("calculated-ratio-val-num").value) {
+  if (!document.getElementById("calculated-ratio-val-num").value)
+  {
     alert("Please enter a valid Main peak/Chemical Comparison value.")
     return;
-  } else {
+  }
+  else
+  {
     addBtn.style.display = "none";
     convertBtn.style.display = "none";
-    
-    //let comparisonValue = Number(chemComparisonValue.value);
+    let list = document.querySelectorAll("#main-list label button");
+      list.forEach((el) => {
+        el.disabled = true;
+      })
     const total = Number((percentOfDiluentTotal + percentOfChemTotal) * 100);
     console.log("Total:" + total)
     const sum = [...document.getElementsByClassName("chems")].map((i) => Number(i.value));
   
-    for (let i = 0; i < sum.length; i++) {
-      //newValuesArr.push(Number((((sum[i] * comparisonValue) / 100) * knownValuesRatio).toFixed(4)))
-      //CHECKING TO SEE IF THIS IS MORE ACCURATE!!
-      
-      //
+    for (let i = 0; i < sum.length; i++)
+    {
       newValuesArr.push(Number((((sum[i] / chemComparisonValue.value) * chemComparisonMax.value) * percentOfDiluentTotal).toFixed(4)))
-      //
-      
     }
     const newValuesTotal = newValuesArr.reduce((acc, el) => acc + el);
     console.log(newValuesTotal, total);
     const newTotal = Number(total - newValuesTotal);
     console.log("new total:" + newTotal)
     const newDiluentValueNum = newTotal.toFixed(3);
-    //const newMainPeakValueNum = Number((chemComparisonValue.value) * (newTotal / total)).toFixed(3);
     document.getElementById("calculated-ratio-val-num").value = newDiluentValueNum;
-    //document.getElementById("new-ratio-val-num").value = newMainPeakValueNum;
-    //document.getElementById("new-ratio-val").textContent = "Main Peak:"
-    
-    //Changes the "new-ratio-val" name so its easier to manage states, allows user to reference original diluent value without adding another box.
-
     document.getElementById("1").value = newValuesArr[0].toFixed(3); //guaranteed to be displayed
-      for (let i = 2; i <= sum.length; i++) {
+      for (let i = 2; i <= sum.length; i++)
+      {
         document.getElementById(`${i}`) ? document.getElementById(`${i}`).value = newValuesArr[i-1].toFixed(3) : "";
       }
     }
   });
-
 
 function printThisPage() {
   window.print();
