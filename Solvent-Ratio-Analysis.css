@@ -84,7 +84,7 @@ h2 {
   font-weight: 500;
 }
 
-#calculate-knowns-ratio-btn:active {
+#calculate-knowns-ratio-btn:active,#convert-btn:active, #print-page:active, #add-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 1px 2px #888888;
 }
