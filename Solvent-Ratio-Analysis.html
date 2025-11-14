@@ -10,24 +10,26 @@
         <h1>Solvent Ratio Analysis</h1>
         <div id="wrapper">
         <section id="known-values">
-          <label for="known-diluent">Known Solvent CORR% max:</label>
-            <input id="known-diluent-max"
-                   type="number"
-                   min="51"
-                   placeholder="100" />
-          <label for="chem-comparison">Chemical Comparison CORR% max:</label>
-            <input id="chem-comparison-max"
-                 type="number"
-                 min="0.01"
-                 max="49"
-                 placeholder="10" />
-          <label for="chem-comparison">Main Chemical Peak w/o solvent:</label>
-            <input id="chem-comparison-value"
-                 type="number"
-                 min="0.01"
-                 max="49"
-                 placeholder="20" />
-          <button id="calculate-knowns-ratio-btn" onclick="calculateKnownsRatio()" type="button">Calculate</button>
+           <form id="known-values-list">
+              <label for="known-diluent">Known Solvent CORR% max:</label>
+                <input id="known-diluent-max"
+                       type="number"
+                       min="51"
+                       placeholder="100" />
+              <label for="chem-comparison">Chemical Comparison CORR% max:</label>
+                <input id="chem-comparison-max"
+                     type="number"
+                     min="0.01"
+                     max="49"
+                     placeholder="10" />
+              <label for="chem-comparison">Main Chemical Peak w/o solvent:</label>
+                <input id="chem-comparison-value"
+                     type="number"
+                     min="0.01"
+                     max="49"
+                     placeholder="20" />
+              <button id="calculate-knowns-ratio-btn" onclick="calculateKnownsRatio()" type="button">Calculate</button>
+           </form>
         </section>
           <br>
           <section id="chemicals-list">
