@@ -37,8 +37,8 @@ function calculateKnownsRatio() {
 addBtn.addEventListener("click", () => {
 
     idCount++;//keeps track of what id to assign each new label & input
-    idCount >= 30 ? addBtn.disabled = true : addBtn.disabled = false;
-    if (idCount <= 30) //prevents the number of items exceeding n as thats what the algorithm cap is for now.
+    idCount >= 50 ? addBtn.disabled = true : addBtn.disabled = false;
+    if (idCount <= 50) //prevents the number of items exceeding n as thats what the algorithm cap is for now.
     {
     //creates new labels and inputs based on when the user clicks the add button
     let newItem = document.createElement("label");
@@ -70,7 +70,7 @@ addBtn.addEventListener("click", () => {
             parent.removeChild(document.getElementById(newItem.id));
             parent.removeChild(document.getElementById(newItemVal.id));
             idCount--;
-            idCount >= 30 ? addBtn.disabled = true : addBtn.disabled = false;
+            idCount >= 50 ? addBtn.disabled = true : addBtn.disabled = false;
           }
        }
     }
@@ -96,7 +96,6 @@ convertBtn.addEventListener("click", () => {
         el.disabled = true;
       })
     const total = Number((percentOfDiluentTotal + percentOfChemTotal) * 100);
-    console.log("Total:" + total)
     const sum = [...document.getElementsByClassName("chems")].map((i) => Number(i.value));
   
     for (let i = 0; i < sum.length; i++)
@@ -104,9 +103,7 @@ convertBtn.addEventListener("click", () => {
       newValuesArr.push(Number((((sum[i] / chemComparisonValue.value) * chemComparisonMax.value) * percentOfDiluentTotal).toFixed(4)))
     }
     const newValuesTotal = newValuesArr.reduce((acc, el) => acc + el);
-    console.log(newValuesTotal, total);
     const newTotal = Number(total - newValuesTotal);
-    console.log("new total:" + newTotal)
     const newDiluentValueNum = newTotal.toFixed(3);
     document.getElementById("calculated-ratio-val-num").value = newDiluentValueNum;
     document.getElementById("1").value = newValuesArr[0].toFixed(3); //guaranteed to be displayed
