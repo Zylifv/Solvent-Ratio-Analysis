@@ -203,6 +203,9 @@ label {
   background-color: var(--red);
   color: var(--white);
   font-weight: bold;
+  border-radius: 2px;
+  text-align: center;
+  justify-content: center;
 }
 
 form.mainlist button:nth-child(n+1):nth-last-child(-n+8).discard {
