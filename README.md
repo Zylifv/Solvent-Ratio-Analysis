@@ -2,6 +2,8 @@
 
 A ratio calculator to determine levels of chemicals when compared to a main peak and its relationship to a diluent peak from a separate list.
 
+![Solvent-Ratio-Analysis-Preview](Solvent-Ratio-AnalysisPNG.png)
+
 Sometimes when looking at GC results, the main diluent peak is so high that all other peaks are hidden in the baseline other than maybe one other larger peak. This calculator takes the relationship between those peaks and finds the ratio between them.
 This ratio can then be used when comparing a separate instance of a run where the main diluent peak has been removed so that the levels of all the other peaks are larger in comparison to the original, but there relationship to the comparison peak is still the same (relatively speaking) and can adjust the levels of all peaks across the board.
 
