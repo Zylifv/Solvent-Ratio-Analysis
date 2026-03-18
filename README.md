@@ -22,3 +22,7 @@ We do this by following these steps:
 This is how we can use both runs to find the ratios between a large diluent peak and the small Chem peaks hidden in the baseline by relying on their relationship to a common peak, in this case the MCP.
 
 If the maths is wrong I will come back and adjust... or delete forever.
+
+To see a working example of this solvent-calculator, please use my CodePen link below:
+
+https://codepen.io/BobbyArmac/full/OPMezrg
